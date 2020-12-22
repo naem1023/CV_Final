@@ -67,4 +67,8 @@ def bayesian(X_train, Y_train, X_test, Y_test, classes):
     acc = accuracy_score(Y_test, Y_pred)
     print("Bayesian Accuracy=", acc)
 
+    with open("bayesian_output.txt", 'w') as file:
+        file.write(str(Y_pred) + '\n')
+        file.write(str(acc) + "\n")
+    
     plot_confusion_matrix(confusion_matrix(Y_test, Y_pred), target_names=classes)

@@ -44,6 +44,8 @@ class MLP(nn.Module):
         self.fc3 = nn.Linear(hidden_dim, output_dim)
 
     def forward(self, x):
+        # print("input shape ", x.shape)
+        x = torch.flatten(x, 1)
         out = self.fc1(x)
         out = self.relu(out)
 
